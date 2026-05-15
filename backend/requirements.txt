@@ -1,0 +1,6 @@
+# Thư viện cho Backend (torch, transformers, fastapi)
+torch
+transformers
+fastapi
+uvicorn
+python-multipart
