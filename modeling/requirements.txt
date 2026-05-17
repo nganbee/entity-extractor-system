@@ -1,0 +1,18 @@
+# Core ML / NLP
+torch
+transformers
+datasets
+evaluate
+seqeval
+
+# Data & numerics
+numpy
+PyYAML
+
+# Training utilities
+bitsandbytes
+tqdm
+
+# Hugging Face Hub & auth
+huggingface_hub
+python-dotenv
