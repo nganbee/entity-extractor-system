@@ -202,6 +202,10 @@ def run_training(trainer: Trainer):
 def push_to_hub(model, tokenizer, repo_id: str, hf_token: str | None = None):
     from huggingface_hub import login
 
+    if not repo_id:
+        print("[WARNING] Can not found HF_REPO_ID ")
+        return
+
     token = hf_token or os.environ.get("HF_TOKEN")
     if not token:
         print("[WARNING] Can not found HF_TOKEN ")
@@ -240,7 +244,7 @@ def main():
     trainer = build_trainer(model, training_args, tokenized_ds, tokenizer, compute_metrics)
     run_training(trainer)
 
-    repo_id = config["hub"]["repo_id"]
+    repo_id = os.environ.get("HF_REPO_ID")
     push_to_hub(model, tokenizer, repo_id)
 
 
