@@ -1,5 +1,4 @@
 # File điều phối cả hệ thống (Backend + Frontend)
-version: '3.8'
 services:
   backend:
     build: ./backend

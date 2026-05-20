@@ -1,11 +1,12 @@
-# Container 1: Model Server (FastAPI + GPU)
-# Cài đặt môi trường PyTorch, CUDA, FastAPI
-FROM pytorch/pytorch:1.10.0-cuda11.3-cudnn8-runtime
+# Container 1: Model Server (FastAPI + CPU)
+# Cài đặt môi trường Python nhẹ và PyTorch bản CPU
+FROM python:3.10-slim
 
 WORKDIR /app
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Cài đặt các thư viện, chỉ định tải PyTorch bản CPU để giảm dung lượng
+RUN pip install --no-cache-dir -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
 
 COPY . .
 
